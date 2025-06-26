@@ -1,0 +1,8 @@
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+
+Sitemap: https://cilene-alves-contabilidade.com/sitemap.xml

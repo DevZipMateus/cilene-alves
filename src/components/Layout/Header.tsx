@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, Facebook, Instagram, Twitter, Linkedin, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '../../hooks/use-mobile';
 
 const Header = () => {
@@ -28,59 +28,72 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-white py-4'}`}>
-      {/* Top Bar with Contact Info and Social Media */}
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
+          : 'bg-white py-4'
+      }`}
+      role="banner"
+    >
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row md:justify-between items-center mb-4 md:mb-2">
-          {/* Contact Information */}
-          <div className="flex flex-col md:flex-row md:space-x-6 text-sm text-gray-600 mb-2 md:mb-0 items-center">
-            <a href="mailto:contato@contabilidade.com" className="flex items-center hover:text-amber-500 transition-colors duration-300 mb-1 md:mb-0">
-              <Mail size={16} className="mr-2" />
-              contato@contabilidade.com
-            </a>
-            <a href="tel:+5511987654321" className="flex items-center hover:text-amber-500 transition-colors duration-300 whitespace-nowrap">
-              <Phone size={16} className="mr-2" />
-              (11) 98765-4321
-            </a>
-          </div>
-          
-          {/* Social Media Icons */}
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-500 hover:text-amber-500 transition-colors duration-300">
-              <Facebook size={18} />
-            </a>
-            <a href="#" className="text-gray-500 hover:text-amber-500 transition-colors duration-300">
-              <Instagram size={18} />
-            </a>
-            <a href="#" className="text-gray-500 hover:text-amber-500 transition-colors duration-300">
-              <Twitter size={18} />
-            </a>
-            <a href="#" className="text-gray-500 hover:text-amber-500 transition-colors duration-300">
-              <Linkedin size={18} />
-            </a>
-          </div>
-        </div>
-        
-        {/* Main Navigation */}
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-semibold text-amber-500 transition-all duration-300 transform hover:scale-[1.02]">
-            ContaPlus
+          <Link 
+            to="/" 
+            className="flex items-center gap-3 transition-transform duration-300 hover:scale-105"
+            aria-label="Cilene Alves Contabilidade - Página inicial"
+          >
+            <img 
+              src="/lovable-uploads/012961a5-f5dd-4025-bb07-fc0306c2e8cb.png" 
+              alt="Logo Cilene Alves Contabilidade"
+              className="h-10 w-auto"
+              loading="eager"
+            />
+            <div className="flex flex-col">
+              <span className="text-xl font-bold font-heading text-gray-900">
+                Cilene Alves
+              </span>
+              <span className="text-sm text-primary font-medium">
+                Contabilidade
+              </span>
+            </div>
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1">
-            <Link to="/" className="nav-link">Início</Link>
-            <a href="#about" className="nav-link">Sobre Nós</a>
-            <a href="#services" className="nav-link">Serviços</a>
-            <a href="#contact" className="nav-link">Contato</a>
+          <nav className="hidden md:flex space-x-1" role="navigation" aria-label="Menu principal">
+            <button onClick={() => scrollToSection('inicio')} className="nav-link">
+              Início
+            </button>
+            <button onClick={() => scrollToSection('sobre')} className="nav-link">
+              Sobre
+            </button>
+            <button onClick={() => scrollToSection('servicos')} className="nav-link">
+              Serviços
+            </button>
+            <button onClick={() => scrollToSection('localizacao')} className="nav-link">
+              Localização
+            </button>
+            <button onClick={() => scrollToSection('contato')} className="nav-link">
+              Contato
+            </button>
           </nav>
           
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-600 hover:text-amber-500 focus:outline-none"
+            className="md:hidden text-gray-600 hover:text-primary focus:outline-none p-2"
             onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -88,13 +101,43 @@ const Header = () => {
       </div>
       
       {/* Mobile Navigation Menu */}
-      <div className={`md:hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300 ease-in-out`}>
-        <div className="container-custom py-4 flex flex-col space-y-3 border-t mt-4">
-          <Link to="/" className="px-4 py-2 text-gray-700 hover:text-amber-500 hover:bg-gray-50 rounded-md" onClick={toggleMobileMenu}>Início</Link>
-          <a href="#about" className="px-4 py-2 text-gray-700 hover:text-amber-500 hover:bg-gray-50 rounded-md" onClick={toggleMobileMenu}>Sobre Nós</a>
-          <a href="#services" className="px-4 py-2 text-gray-700 hover:text-amber-500 hover:bg-gray-50 rounded-md" onClick={toggleMobileMenu}>Serviços</a>
-          <a href="#contact" className="px-4 py-2 text-gray-700 hover:text-amber-500 hover:bg-gray-50 rounded-md" onClick={toggleMobileMenu}>Contato</a>
-        </div>
+      <div 
+        className={`md:hidden ${
+          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden transition-all duration-300 ease-in-out bg-white border-t`}
+      >
+        <nav className="container-custom py-4 flex flex-col space-y-2" role="navigation" aria-label="Menu mobile">
+          <button 
+            onClick={() => scrollToSection('inicio')} 
+            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+          >
+            Início
+          </button>
+          <button 
+            onClick={() => scrollToSection('sobre')} 
+            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+          >
+            Sobre
+          </button>
+          <button 
+            onClick={() => scrollToSection('servicos')} 
+            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+          >
+            Serviços
+          </button>
+          <button 
+            onClick={() => scrollToSection('localizacao')} 
+            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+          >
+            Localização
+          </button>
+          <button 
+            onClick={() => scrollToSection('contato')} 
+            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+          >
+            Contato
+          </button>
+        </nav>
       </div>
     </header>
   );

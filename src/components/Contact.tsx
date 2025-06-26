@@ -1,118 +1,280 @@
-import React from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { Phone, Mail, MessageCircle, Send, User, Building } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
 
 const Contact = () => {
   const isMobile = useIsMobile();
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleWhatsAppContact = () => {
+    const message = `Olá Cilene! Gostaria de saber mais sobre seus serviços contábeis.
+
+*Nome:* ${formData.name || 'Não informado'}
+*Empresa:* ${formData.company || 'Não informado'}
+*Telefone:* ${formData.phone || 'Não informado'}
+*E-mail:* ${formData.email || 'Não informado'}
+
+*Mensagem:*
+${formData.message || 'Gostaria de mais informações sobre os serviços.'}`;
+
+    const whatsappUrl = `https://wa.me/5586981361989?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleEmailContact = () => {
+    const subject = `Contato do site - ${formData.name || 'Interessado'}`;
+    const body = `Nome: ${formData.name}
+Empresa: ${formData.company}
+Telefone: ${formData.phone}
+E-mail: ${formData.email}
+
+Mensagem:
+${formData.message}`;
+
+    const mailtoUrl = `mailto:cilenealves1@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+  };
+
   return (
-    <section id="contact" className="section bg-neutral-100">
+    <section id="contato" className="section bg-gray-50">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-block bg-amber-100 text-amber-600 font-medium px-4 py-1.5 rounded-full text-sm mb-4">
-            Contato
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-block bg-primary/10 text-primary font-medium px-4 py-2 rounded-full text-sm mb-6">
+            Entre em Contato
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-            Entre em contato conosco
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Vamos conversar sobre seu negócio
           </h2>
-          <p className="text-neutral-600 text-lg">
-            Estamos prontos para atender às suas necessidades através dos nossos canais de atendimento.
+          <p className="text-lg text-gray-600">
+            Preencha o formulário abaixo e escolha como prefere ser contatado. 
+            Atendimento personalizado é nosso diferencial.
           </p>
         </div>
         
-        {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {/* WhatsApp Card */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in">
-            <div className="bg-emerald-500 p-6 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/1fa16bc1-908d-4a63-9c7f-88a25f117f80.png" 
-                alt="WhatsApp" 
-                className="w-16 h-16"
-              />
-            </div>
-            <div className="p-6 text-center">
-              <h3 className="text-lg font-semibold text-neutral-900 mb-2">WhatsApp</h3>
-              <p className="text-neutral-600 mb-4">Atendimento rápido e prático</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left Column - Contact Form */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 className="font-heading text-2xl font-semibold text-gray-900 mb-6">
+              Solicite seu atendimento
+            </h3>
+            
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Nome *
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      placeholder="Seu nome completo"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Telefone *
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      placeholder="(86) 9 9999-9999"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    E-mail *
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      placeholder="seu@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    Empresa
+                  </label>
+                  <div className="relative">
+                    <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      placeholder="Nome da sua empresa"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Mensagem
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"
+                  placeholder="Conte-me sobre suas necessidades contábeis..."
+                ></textarea>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  onClick={handleWhatsAppContact}
+                  className="btn-primary w-full inline-flex items-center justify-center gap-2"
+                >
+                  <MessageCircle size={18} />
+                  <span>Enviar via WhatsApp</span>
+                </button>
+                
+                <button
+                  type="button"
+                  onClick={handleEmailContact}
+                  className="btn-secondary w-full inline-flex items-center justify-center gap-2"
+                >
+                  <Send size={18} />
+                  <span>Enviar por E-mail</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          
+          {/* Right Column - Contact Methods */}
+          <div className="space-y-8">
+            {/* WhatsApp Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-green-500 p-4 rounded-xl">
+                  <MessageCircle className="text-white" size={28} />
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl font-semibold text-gray-900">
+                    WhatsApp
+                  </h3>
+                  <p className="text-gray-600">Resposta rápida e prática</p>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-6">
+                Conversa direta comigo no WhatsApp. Ideal para dúvidas rápidas 
+                e agendamento de consultorias.
+              </p>
               <a 
-                href="https://wa.me/5511987654321" 
+                href="https://wa.me/5586981361989" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-black hover:bg-neutral-800 text-amber-400 px-6 py-2 rounded-md inline-flex items-center justify-center gap-2 transition-all font-medium"
+                className="btn-primary w-full inline-flex items-center justify-center gap-2"
               >
-                <span>Enviar mensagem</span>
+                <MessageCircle size={18} />
+                <span>Abrir WhatsApp</span>
               </a>
-            </div>
-          </div>
-          
-          {/* Phone Card */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <div className="bg-amber-400 p-6 flex items-center justify-center">
-              <Phone className="w-16 h-16 text-white" />
-            </div>
-            <div className="p-6 text-center">
-              <h3 className="text-lg font-semibold text-neutral-900 mb-2">Telefone</h3>
-              <p className="text-neutral-600 mb-4">Fale diretamente conosco</p>
-              <a 
-                href="tel:+5511987654321"
-                className="bg-black hover:bg-neutral-800 text-amber-400 px-6 py-2 rounded-md inline-flex items-center justify-center gap-2 transition-all font-medium"
-              >
-                <span>(11) 98765-4321</span>
-              </a>
-            </div>
-          </div>
-          
-          {/* Email Card */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="bg-neutral-800 p-6 flex items-center justify-center">
-              <Mail className="w-16 h-16 text-amber-400" />
-            </div>
-            <div className="p-6 text-center">
-              <h3 className="text-lg font-semibold text-neutral-900 mb-2">E-mail</h3>
-              <p className="text-neutral-600 mb-4">Envie sua mensagem</p>
-              <a 
-                href="mailto:contato@contabilidade.com"
-                className="bg-black hover:bg-neutral-800 text-amber-400 px-6 py-2 rounded-md inline-flex items-center justify-center gap-2 transition-all font-medium"
-              >
-                <span>contato@contabilidade.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        {/* Address and Hours Card */}
-        <div className="mt-12 bg-white rounded-xl shadow-sm p-8 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Address */}
-            <div className="flex items-start">
-              <div className="bg-neutral-100 p-3 rounded-full mr-4 flex-shrink-0">
-                <MapPin className="text-neutral-700" size={24} />
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-neutral-900 mb-2">Endereço</h4>
-                <p className="text-neutral-600">Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100</p>
-              </div>
             </div>
             
-            {/* Working Hours */}
-            <div>
-              <h4 className="text-lg font-semibold text-neutral-900 mb-4">Horário de Atendimento</h4>
-              
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-neutral-600">Segunda - Sexta:</span>
-                  <span className="font-medium text-neutral-900">08:00 - 18:00</span>
+            {/* Phone Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-primary p-4 rounded-xl">
+                  <Phone className="text-white" size={28} />
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-neutral-600">Sábado:</span>
-                  <span className="font-medium text-neutral-900">09:00 - 13:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-neutral-600">Domingo:</span>
-                  <span className="font-medium text-neutral-900">Fechado</span>
+                <div>
+                  <h3 className="font-heading text-xl font-semibold text-gray-900">
+                    Telefone
+                  </h3>
+                  <p className="text-gray-600">Atendimento direto</p>
                 </div>
               </div>
+              <p className="text-gray-600 mb-4">
+                Ligue diretamente para esclarecer dúvidas ou agendar uma reunião.
+              </p>
+              <p className="text-2xl font-bold text-primary mb-6">
+                (86) 98136-1989
+              </p>
+              <a 
+                href="tel:+5586981361989"
+                className="btn-secondary w-full inline-flex items-center justify-center gap-2"
+              >
+                <Phone size={18} />
+                <span>Ligar Agora</span>
+              </a>
+            </div>
+            
+            {/* Email Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="bg-accent p-4 rounded-xl">
+                  <Mail className="text-white" size={28} />
+                </div>
+                <div>
+                  <h3 className="font-heading text-xl font-semibold text-gray-900">
+                    E-mail
+                  </h3>
+                  <p className="text-gray-600">Documentação detalhada</p>
+                </div>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Ideal para envio de documentos e consultas mais detalhadas.
+              </p>
+              <p className="text-lg font-medium text-accent mb-6 break-all">
+                cilenealves1@hotmail.com
+              </p>
+              <a 
+                href="mailto:cilenealves1@hotmail.com"
+                className="btn-secondary w-full inline-flex items-center justify-center gap-2"
+              >
+                <Mail size={18} />
+                <span>Enviar E-mail</span>
+              </a>
             </div>
           </div>
         </div>
