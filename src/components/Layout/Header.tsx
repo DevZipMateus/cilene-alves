@@ -40,8 +40,8 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
-          : 'bg-white py-4'
+          ? 'bg-background/95 backdrop-blur-md shadow-lg py-3 border-b border-border' 
+          : 'bg-background py-4'
       }`}
       role="banner"
     >
@@ -60,7 +60,7 @@ const Header = () => {
               loading="eager"
             />
             <div className="flex flex-col">
-              <span className="text-xl font-bold font-heading text-gray-900">
+              <span className="text-xl font-bold font-heading text-foreground">
                 Cilene Alves
               </span>
               <span className="text-sm text-primary font-medium">
@@ -90,7 +90,7 @@ const Header = () => {
           
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-600 hover:text-primary focus:outline-none p-2"
+            className="md:hidden text-muted-foreground hover:text-primary focus:outline-none p-2"
             onClick={toggleMobileMenu}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMobileMenuOpen}
@@ -104,36 +104,36 @@ const Header = () => {
       <div 
         className={`md:hidden ${
           isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden transition-all duration-300 ease-in-out bg-white border-t`}
+        } overflow-hidden transition-all duration-300 ease-in-out bg-background border-t border-border`}
       >
         <nav className="container-custom py-4 flex flex-col space-y-2" role="navigation" aria-label="Menu mobile">
           <button 
             onClick={() => scrollToSection('inicio')} 
-            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+            className="px-4 py-3 text-left text-foreground hover:text-primary hover:bg-card rounded-md transition-colors"
           >
             Início
           </button>
           <button 
             onClick={() => scrollToSection('sobre')} 
-            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+            className="px-4 py-3 text-left text-foreground hover:text-primary hover:bg-card rounded-md transition-colors"
           >
             Sobre
           </button>
           <button 
             onClick={() => scrollToSection('servicos')} 
-            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+            className="px-4 py-3 text-left text-foreground hover:text-primary hover:bg-card rounded-md transition-colors"
           >
             Serviços
           </button>
           <button 
             onClick={() => scrollToSection('localizacao')} 
-            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+            className="px-4 py-3 text-left text-foreground hover:text-primary hover:bg-card rounded-md transition-colors"
           >
             Localização
           </button>
           <button 
             onClick={() => scrollToSection('contato')} 
-            className="px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors"
+            className="px-4 py-3 text-left text-foreground hover:text-primary hover:bg-card rounded-md transition-colors"
           >
             Contato
           </button>

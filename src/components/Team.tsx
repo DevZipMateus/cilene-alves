@@ -35,17 +35,17 @@ const team = [
 
 const Team = () => {
   return (
-    <section className="section bg-white">
+    <section className="section bg-background">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block bg-corporate-blue/10 text-corporate-blue font-medium px-4 py-1.5 rounded-full text-sm mb-4">
+          <div className="inline-block bg-primary/10 text-primary font-medium px-4 py-1.5 rounded-full text-sm mb-4">
             Nossa Equipe
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Conheça os profissionais por trás dos nossos serviços
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-muted-foreground text-lg">
             Nossa equipe de especialistas está pronta para oferecer as melhores soluções contábeis para o seu negócio.
           </p>
         </div>
@@ -55,7 +55,7 @@ const Team = () => {
           {team.map((member) => (
             <div 
               key={member.id}
-              className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
+              className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in border border-border"
               style={{ animationDelay: member.delay }}
             >
               {/* Image */}
@@ -69,20 +69,20 @@ const Team = () => {
               
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-corporate-blue mb-4">{member.role}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
+                <p className="text-primary mb-4">{member.role}</p>
                 
                 {/* Social Icons */}
                 <div className="flex space-x-3">
                   <a 
                     href="#" 
-                    className="bg-gray-100 hover:bg-corporate-blue/10 text-gray-600 hover:text-corporate-blue p-2 rounded-full transition-colors duration-300"
+                    className="bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary p-2 rounded-full transition-colors duration-300"
                   >
                     <Linkedin size={18} />
                   </a>
                   <a 
                     href="#" 
-                    className="bg-gray-100 hover:bg-corporate-blue/10 text-gray-600 hover:text-corporate-blue p-2 rounded-full transition-colors duration-300"
+                    className="bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary p-2 rounded-full transition-colors duration-300"
                   >
                     <Mail size={18} />
                   </a>

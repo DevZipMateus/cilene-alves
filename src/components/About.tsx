@@ -27,7 +27,7 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="section bg-white">
+    <section id="sobre" className="section bg-background">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
@@ -36,30 +36,30 @@ const About = () => {
               Sobre Mim
             </div>
             
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
               Uma parceira estratégica para o seu negócio
             </h2>
             
-            <div className="prose prose-lg text-gray-600 mb-8">
+            <div className="prose prose-lg text-muted-foreground mb-8">
               <p className="mb-4">
-                Sou <strong>Cilene Alves</strong>, contadora formada desde 2014 e, desde então, 
+                Sou <strong className="text-foreground">Cilene Alves</strong>, contadora formada desde 2014 e, desde então, 
                 atuo com dedicação ao atendimento de empresas e empresários em Teresina-PI.
               </p>
               
               <p className="mb-4">
-                Ofereço um <strong>serviço contábil de excelência</strong>, com foco na organização, 
+                Ofereço um <strong className="text-foreground">serviço contábil de excelência</strong>, com foco na organização, 
                 economia legal de impostos e crescimento sustentável dos negócios.
               </p>
               
               <p>
-                Trabalho de forma personalizada, com uma <strong>linguagem acessível</strong>, 
+                Trabalho de forma personalizada, com uma <strong className="text-foreground">linguagem acessível</strong>, 
                 sempre buscando descomplicar a contabilidade e ser uma parceira estratégica 
                 para meus clientes.
               </p>
             </div>
             
             <div className="bg-primary/5 p-6 rounded-xl border-l-4 border-primary mb-8">
-              <blockquote className="text-lg font-medium text-gray-900 italic">
+              <blockquote className="text-lg font-medium text-foreground italic">
                 "O meu propósito é fazer sua empresa crescer do jeito certo."
               </blockquote>
               <cite className="text-primary font-semibold mt-2 block">- Cilene Alves</cite>
@@ -90,17 +90,17 @@ const About = () => {
             {highlights.map((highlight, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-4 p-6 bg-gray-50 rounded-xl card-hover"
+                className="flex items-start gap-4 p-6 bg-card rounded-xl card-hover border border-border"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="bg-primary p-3 rounded-lg flex-shrink-0">
-                  <highlight.icon className="text-white" size={24} />
+                  <highlight.icon className="text-primary-foreground" size={24} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
                     {highlight.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                     {highlight.description}
                   </p>
                 </div>
@@ -113,19 +113,19 @@ const About = () => {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="p-6">
             <div className="text-3xl font-bold text-primary mb-2">10+</div>
-            <p className="text-gray-600">Anos de Experiência</p>
+            <p className="text-muted-foreground">Anos de Experiência</p>
           </div>
           <div className="p-6">
             <div className="text-3xl font-bold text-primary mb-2">200+</div>
-            <p className="text-gray-600">Empresas Atendidas</p>
+            <p className="text-muted-foreground">Empresas Atendidas</p>
           </div>
           <div className="p-6">
             <div className="text-3xl font-bold text-primary mb-2">100%</div>
-            <p className="text-gray-600">Satisfação</p>
+            <p className="text-muted-foreground">Satisfação</p>
           </div>
           <div className="p-6">
             <div className="text-3xl font-bold text-primary mb-2">24h</div>
-            <p className="text-gray-600">Suporte</p>
+            <p className="text-muted-foreground">Suporte</p>
           </div>
         </div>
       </div>
