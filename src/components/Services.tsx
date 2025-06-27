@@ -49,17 +49,17 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="servicos" className="section bg-gray-50">
+    <section id="servicos" className="section bg-background">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-primary/10 text-primary font-medium px-4 py-2 rounded-full text-sm mb-6">
             Nossos Serviços
           </div>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
             Soluções completas para sua empresa
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-muted-foreground">
             Oferecemos serviços especializados com atendimento personalizado, 
             linguagem acessível e foco no crescimento sustentável do seu negócio.
           </p>
@@ -77,17 +77,17 @@ const Services = () => {
                 <service.icon size={32} className="text-primary group-hover:text-white transition-colors" />
               </div>
               
-              <h3 className="font-heading text-xl font-semibold mb-4 text-gray-900">
+              <h3 className="font-heading text-xl font-semibold mb-4 text-foreground">
                 {service.title}
               </h3>
               
-              <p className="text-gray-600 mb-6">
+              <p className="text-muted-foreground mb-6">
                 {service.description}
               </p>
               
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600">
+                  <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
                     <span>{feature}</span>
                   </li>
@@ -98,11 +98,11 @@ const Services = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-white rounded-2xl p-8 md:p-12 shadow-lg">
-          <h3 className="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        <div className="mt-16 text-center bg-card rounded-2xl p-8 md:p-12 shadow-lg border border-border">
+          <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
             Precisa de um serviço específico?
           </h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Entre em contato comigo e vamos conversar sobre as necessidades específicas 
             da sua empresa. Atendimento personalizado é nosso diferencial.
           </p>
