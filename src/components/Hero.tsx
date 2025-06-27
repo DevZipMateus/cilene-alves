@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { ArrowRight, Award, Users, Clock } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
-
 const Hero = () => {
   const isMobile = useIsMobile();
-  
   const scrollToContact = () => {
     const element = document.getElementById('contato');
     if (element) {
@@ -14,22 +11,20 @@ const Hero = () => {
       });
     }
   };
-
-  return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-card to-background overflow-hidden">
+  return <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-card to-background overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '2s'
-        }}></div>
+        animationDelay: '2s'
+      }}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container-custom relative z-10 pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left py-[20px]">
             <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-medium px-4 py-2 rounded-full text-sm mb-6 animate-fadeInUp">
               <Award size={16} />
               <span>Contadora desde 2014</span>
@@ -114,8 +109,6 @@ const Hero = () => {
           <path fill="hsl(var(--background))" fillOpacity="1" d="M0,32L80,37.3C160,43,320,53,480,58.7C640,64,800,64,960,53.3C1120,43,1280,21,1360,10.7L1440,0L1440,100L1360,100C1280,100,1120,100,960,100C800,100,640,100,480,100C320,100,160,100,80,100L0,100Z" />
         </svg>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
