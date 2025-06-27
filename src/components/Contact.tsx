@@ -175,7 +175,11 @@ ${formData.message}`;
                   onClick={handleWhatsAppContact}
                   className="btn-primary w-full inline-flex items-center justify-center gap-2"
                 >
-                  <MessageCircle size={18} />
+                  <img 
+                    src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
+                    alt="WhatsApp" 
+                    className="w-5 h-5 object-contain"
+                  />
                   <span>Enviar via WhatsApp</span>
                 </button>
                 
@@ -197,7 +201,11 @@ ${formData.message}`;
             <div className="bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-green-500 p-4 rounded-xl">
-                  <MessageCircle className="text-white" size={28} />
+                  <img 
+                    src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
+                    alt="WhatsApp" 
+                    className="w-7 h-7 object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="font-heading text-xl font-semibold text-white">
@@ -216,7 +224,11 @@ ${formData.message}`;
                 rel="noopener noreferrer"
                 className="btn-primary w-full inline-flex items-center justify-center gap-2"
               >
-                <MessageCircle size={18} />
+                <img 
+                  src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
+                  alt="WhatsApp" 
+                  className="w-5 h-5 object-contain"
+                />
                 <span>Abrir WhatsApp</span>
               </a>
             </div>
