@@ -58,7 +58,7 @@ const FloatingWhatsApp = () => {
         <img 
           src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
           alt="WhatsApp" 
-          className={`${isMobile ? 'w-6 h-6' : 'w-7 h-7'} object-contain`}
+          className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} object-contain`}
         />
         
         {/* Tooltip */}
@@ -79,7 +79,7 @@ const FloatingWhatsApp = () => {
                 <img 
                   src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
                   alt="WhatsApp" 
-                  className="w-5 h-5 object-contain"
+                  className="w-6 h-6 object-contain"
                 />
               </div>
               <div>
