@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white" role="contentinfo">
+    <footer className="bg-black text-white border-t border-gray-800" role="contentinfo">
       <div className="container-custom py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
@@ -16,7 +16,7 @@ const Footer = () => {
                 className="h-12 w-auto"
               />
               <div>
-                <h3 className="font-heading text-xl font-bold">Cilene Alves</h3>
+                <h3 className="font-heading text-xl font-bold text-white">Cilene Alves</h3>
                 <p className="text-primary font-medium">Contabilidade</p>
               </div>
             </div>
@@ -28,7 +28,7 @@ const Footer = () => {
                 href="https://instagram.com/soucilene.contadora" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-primary transition-colors p-3 rounded-lg"
+                className="bg-gray-800 hover:bg-primary transition-colors p-3 rounded-lg border border-gray-700"
                 aria-label="Seguir no Instagram"
               >
                 <Instagram size={20} />
@@ -38,12 +38,12 @@ const Footer = () => {
           
           {/* Contact Information */}
           <div>
-            <h3 className="font-heading text-xl font-semibold mb-6">Contato</h3>
+            <h3 className="font-heading text-xl font-semibold mb-6 text-white">Contato</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="mt-1 flex-shrink-0 text-primary" size={18} />
                 <div>
-                  <p className="font-medium">Telefone</p>
+                  <p className="font-medium text-white">Telefone</p>
                   <a 
                     href="tel:+5586981361989" 
                     className="text-gray-300 hover:text-primary transition-colors"
@@ -55,7 +55,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail className="mt-1 flex-shrink-0 text-primary" size={18} />
                 <div>
-                  <p className="font-medium">E-mail</p>
+                  <p className="font-medium text-white">E-mail</p>
                   <a 
                     href="mailto:cilenealves1@hotmail.com" 
                     className="text-gray-300 hover:text-primary transition-colors break-all"
@@ -67,7 +67,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-1 flex-shrink-0 text-primary" size={18} />
                 <div>
-                  <p className="font-medium">Endereço</p>
+                  <p className="font-medium text-white">Endereço</p>
                   <address className="text-gray-300 not-italic">
                     Rua Samaria, nº 01<br />
                     Cerâmica Cil, Teresina - PI
@@ -79,7 +79,7 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="font-heading text-xl font-semibold mb-6">Serviços</h3>
+            <h3 className="font-heading text-xl font-semibold mb-6 text-white">Serviços</h3>
             <ul className="space-y-2">
               <li>
                 <span className="text-gray-300 hover:text-primary transition-colors cursor-pointer">

@@ -51,17 +51,17 @@ ${formData.message}`;
   };
 
   return (
-    <section id="contato" className="section bg-gray-50">
+    <section id="contato" className="section bg-gray-900">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-primary/10 text-primary font-medium px-4 py-2 rounded-full text-sm mb-6">
             Entre em Contato
           </div>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
             Vamos conversar sobre seu negócio
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-300">
             Preencha o formulário abaixo e escolha como prefere ser contatado. 
             Atendimento personalizado é nosso diferencial.
           </p>
@@ -69,15 +69,15 @@ ${formData.message}`;
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="font-heading text-2xl font-semibold text-gray-900 mb-6">
+          <div className="bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-700">
+            <h3 className="font-heading text-2xl font-semibold text-white mb-6">
               Solicite seu atendimento
             </h3>
             
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Nome *
                   </label>
                   <div className="relative">
@@ -88,7 +88,7 @@ ${formData.message}`;
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white placeholder-gray-400"
                       placeholder="Seu nome completo"
                       required
                     />
@@ -96,7 +96,7 @@ ${formData.message}`;
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                     Telefone *
                   </label>
                   <div className="relative">
@@ -107,7 +107,7 @@ ${formData.message}`;
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white placeholder-gray-400"
                       placeholder="(86) 9 9999-9999"
                       required
                     />
@@ -117,7 +117,7 @@ ${formData.message}`;
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     E-mail *
                   </label>
                   <div className="relative">
@@ -128,7 +128,7 @@ ${formData.message}`;
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white placeholder-gray-400"
                       placeholder="seu@email.com"
                       required
                     />
@@ -136,7 +136,7 @@ ${formData.message}`;
                 </div>
                 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
                     Empresa
                   </label>
                   <div className="relative">
@@ -147,7 +147,7 @@ ${formData.message}`;
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white placeholder-gray-400"
                       placeholder="Nome da sua empresa"
                     />
                   </div>
@@ -155,7 +155,7 @@ ${formData.message}`;
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Mensagem
                 </label>
                 <textarea
@@ -164,7 +164,7 @@ ${formData.message}`;
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical text-white placeholder-gray-400"
                   placeholder="Conte-me sobre suas necessidades contábeis..."
                 ></textarea>
               </div>
@@ -194,19 +194,19 @@ ${formData.message}`;
           {/* Right Column - Contact Methods */}
           <div className="space-y-8">
             {/* WhatsApp Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-green-500 p-4 rounded-xl">
                   <MessageCircle className="text-white" size={28} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-900">
+                  <h3 className="font-heading text-xl font-semibold text-white">
                     WhatsApp
                   </h3>
-                  <p className="text-gray-600">Resposta rápida e prática</p>
+                  <p className="text-gray-300">Resposta rápida e prática</p>
                 </div>
               </div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Conversa direta comigo no WhatsApp. Ideal para dúvidas rápidas 
                 e agendamento de consultorias.
               </p>
@@ -222,19 +222,19 @@ ${formData.message}`;
             </div>
             
             {/* Phone Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-primary p-4 rounded-xl">
                   <Phone className="text-white" size={28} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-900">
+                  <h3 className="font-heading text-xl font-semibold text-white">
                     Telefone
                   </h3>
-                  <p className="text-gray-600">Atendimento direto</p>
+                  <p className="text-gray-300">Atendimento direto</p>
                 </div>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-300 mb-4">
                 Ligue diretamente para esclarecer dúvidas ou agendar uma reunião.
               </p>
               <p className="text-2xl font-bold text-primary mb-6">
@@ -250,19 +250,19 @@ ${formData.message}`;
             </div>
             
             {/* Email Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-700">
               <div className="flex items-center gap-4 mb-6">
                 <div className="bg-accent p-4 rounded-xl">
                   <Mail className="text-white" size={28} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-900">
+                  <h3 className="font-heading text-xl font-semibold text-white">
                     E-mail
                   </h3>
-                  <p className="text-gray-600">Documentação detalhada</p>
+                  <p className="text-gray-300">Documentação detalhada</p>
                 </div>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-300 mb-4">
                 Ideal para envio de documentos e consultas mais detalhadas.
               </p>
               <p className="text-lg font-medium text-accent mb-6 break-all">
