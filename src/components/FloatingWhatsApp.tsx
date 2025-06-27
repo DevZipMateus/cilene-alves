@@ -55,7 +55,11 @@ const FloatingWhatsApp = () => {
         }}
         aria-label="Conversar no WhatsApp com Cilene Alves"
       >
-        <MessageCircle size={isMobile ? 24 : 28} />
+        <img 
+          src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
+          alt="WhatsApp" 
+          className={`${isMobile ? 'w-6 h-6' : 'w-7 h-7'} object-contain`}
+        />
         
         {/* Tooltip */}
         <div className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -72,7 +76,11 @@ const FloatingWhatsApp = () => {
           <div className="bg-white rounded-2xl shadow-xl p-4 max-w-xs border border-gray-100">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="text-white" size={18} />
+                <img 
+                  src="/lovable-uploads/4254d38c-ab81-4efd-b39e-6cd733c44c1a.png" 
+                  alt="WhatsApp" 
+                  className="w-5 h-5 object-contain"
+                />
               </div>
               <div>
                 <p className="text-sm font-medium text-gray-900 mb-1">
